@@ -33,7 +33,6 @@ public class PredictionController {
 
     @GetMapping("/hello")
     public ResponseEntity<String> hello() {
-
-        return ResponseEntity.ok("Hello my friend!!!");
+        return ResponseEntity.ok("Hello world!");
     }
 }
