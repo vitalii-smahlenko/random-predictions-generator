@@ -19,7 +19,7 @@
         you can get your own, personal predictions that add intrigue and mystery to your day
     </description>
     <properties>
-        <java.version>11</java.version>
+        <java.version>17</java.version>
         <mapstruct.version>1.5.5.Final</mapstruct.version>
     </properties>
     <dependencies>
@@ -66,8 +66,13 @@
             <artifactId>mapstruct</artifactId>
             <version>${mapstruct.version}</version>
         </dependency>
-    </dependencies>
 
+        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
+        </dependency>
+
+    </dependencies>
     <build>
         <plugins>
             <plugin>
@@ -82,7 +87,7 @@
                     </excludes>
                 </configuration>
             </plugin>
+
         </plugins>
     </build>
-
 </project>

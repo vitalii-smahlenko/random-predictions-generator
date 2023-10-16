@@ -11,19 +11,19 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class PredictionServiceImpl implements PredictionService {
-    private final PredictionRepository repository;
+    private final PredictionRepository predictionRepository;
 
     @Override
     public Prediction add(Prediction prediction) {
-        return repository.save(prediction);
+        return predictionRepository.save(prediction);
     }
 
     @Override
     public Prediction getRandomPrediction() {
-        Integer numberOfPrediction = repository.countPredictionById();
+        long numberOfPrediction = predictionRepository.count();
         Random random = new Random();
-        Long id = (long) random.nextInt(numberOfPrediction + 1);
-        return repository.findById(id).orElseThrow(
+        long id = (long) random.nextInt(1,(int) numberOfPrediction + 1);
+        return predictionRepository.findById(id).orElseThrow(
                 () -> new NoSuchElementException("Something went wrong try again!")
         );
     }

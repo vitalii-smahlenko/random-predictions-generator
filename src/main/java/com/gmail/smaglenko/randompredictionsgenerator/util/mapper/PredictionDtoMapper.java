@@ -7,8 +7,8 @@ import org.mapstruct.Mapping;
 
 @Mapper(componentModel = "spring")
 public interface PredictionDtoMapper {
+    @Mapping(target = "id", ignore = true)
     PredictionDto mapToDto(Prediction prediction);
 
-    @Mapping(target = "id", ignore = true)
     Prediction mapToModel(PredictionDto dto);
 }

@@ -6,16 +6,14 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AccessLevel;
-import lombok.Getter;
+import lombok.Data;
 import lombok.Setter;
 
+@Data
 @Entity
 @Table(name = "predictions")
-@Getter
-@Setter
 public class Prediction {
     @Id
-    @Setter(AccessLevel.NONE)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String content;

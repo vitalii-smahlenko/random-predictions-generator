@@ -20,9 +20,9 @@ public class PredictionController {
     private final PredictionDtoMapper predictionDtoMapper;
 
     @PostMapping("/create")
-    public ResponseEntity<String> createPrediction(@RequestBody PredictionDto dto) {
-        predictionService.add(predictionDtoMapper.mapToModel(dto));
-        return ResponseEntity.ok("Prediction successfully added!");
+    public PredictionDto createPrediction(@RequestBody PredictionDto dto) {
+        return predictionDtoMapper
+                .mapToDto(predictionService.add(predictionDtoMapper.mapToModel(dto)));
     }
 
     @GetMapping("/get-prediction-for-today")
