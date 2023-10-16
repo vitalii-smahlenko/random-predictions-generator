@@ -1,10 +1,8 @@
-FROM openjdk:17-alpine
+FROM maven:3.8.5-openjdk-17-slim AS build
+COPY . .
+RUN mvn clean package -DskipTests
 
-COPY ./src src/
-COPY ./pom.xml pom.xml
-
-RUN mvn clean packeg
-
-FROM openjdk:17-alpine
-COPY --from=builder target/*.jar app.jar
-CMD ["java","-jar","app.jar"]
+FROM openjdk:17.0.1-jdk-slim
+COPY --from=build /target/*.jar app.jar
+EXPOSE 8080
+ENTRYPOINT ["java","-jar","app.jar"]
