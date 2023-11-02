@@ -1,0 +1,12 @@
+POST http://localhost:8080/api/predictions
+Content-Type: application/json
+
+{
+   "content": "You will discover a new planet."
+}
+
+###
+GET http://localhost:8080/api/predictions/get-random
+
+###
+GET http://localhost:8080/api/predictions/hello

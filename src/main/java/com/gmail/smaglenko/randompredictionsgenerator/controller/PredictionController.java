@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/predictions")
+@RequestMapping("/api/predictions")
 @RequiredArgsConstructor
 public class PredictionController {
     private final PredictionService predictionService;
