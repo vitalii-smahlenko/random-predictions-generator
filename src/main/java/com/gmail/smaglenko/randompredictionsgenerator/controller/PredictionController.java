@@ -30,9 +30,4 @@ public class PredictionController {
         Prediction randomPrediction = predictionService.getRandomPrediction();
         return ResponseEntity.ok(randomPrediction.getContent());
     }
-
-    @GetMapping("/hello")
-    public ResponseEntity<String> hello() {
-        return ResponseEntity.ok("Hello random-predictions-generator app!!!");
-    }
 }
